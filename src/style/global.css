@@ -41,6 +41,21 @@ section {
   padding: 96px;
 }
 
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  background-color: white;
+}
+
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+}
+
 /* ? Header */
 header {
   width: 100%;
@@ -67,12 +82,12 @@ header.sticky .logo-container a {
   color: var(--dark);
 }
 
-header.sticky .nav-container ul li a {
+header.sticky .nav li a {
   color: var(--dark);
   transition: ease-in-out 0.3s;
 }
 
-header.sticky .nav-container ul li a:hover {
+header.sticky .nav li a:hover {
   transition: ease-in-out 0.3s;
   color: var(--primary);
 }
@@ -88,32 +103,25 @@ header .logo-container a {
   color: white;
 }
 
-.nav-container {
+.nav {
+  list-style: none;
   font-size: 16px;
   font-weight: 500;
   display: flex;
   margin-left: auto;
 }
 
-.nav-container ul li,
-.nav-container a {
+.nav li a {
   display: inline;
   text-decoration: none;
-  list-style: none;
-  margin: 0 8px;
+  margin: 0 14px;
   color: white;
 }
 
-.nav-container ul li a:hover {
+.nav li a:hover {
   transition: ease-in-out 0.3s;
   color: var(--primary);
 }
-
-/* .hamburger-menu::before {
-}
-
-.hamburger-menu::after {
-} */
 
 /* ? Home Section */
 #home {
@@ -264,7 +272,7 @@ header .logo-container a {
 }
 
 .menu-content .menu-card {
-  width: 360px;
+  width: 380px;
   position: relative;
   margin: 8px;
   background-color: white;
@@ -543,4 +551,218 @@ header .logo-container a {
 .footer-content a:hover {
   color: var(--primary);
   transition: 0.5s;
+}
+
+/* ? Laptop Breakpoint */
+@media (max-width: 1024px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  header {
+    justify-content: space-between;
+    padding: 24px 40px;
+  }
+
+  header.sticky {
+    padding: 16px 30px;
+  }
+
+  .nav {
+    font-size: 15px;
+  }
+
+  .nav a {
+    margin: 0 7px;
+  }
+
+  section {
+    padding: 100px 40px;
+  }
+
+  .col-about .about-img {
+    max-height: 350px;
+  }
+
+  .menu-content .menu-card {
+    width: 300px;
+  }
+
+  .contact-box {
+    margin: 20px;
+    width: 660px;
+  }
+}
+
+/* ? Tablet Breakpoint */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  section {
+    padding: 120px 30px;
+  }
+
+  header {
+    padding: 28px 40px;
+    justify-content: space-between;
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+
+  .hamburger-menu.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: white;
+    transition: 0.5s;
+  }
+
+  .nav li,
+  .nav li a {
+    font-size: 18px;
+    text-decoration: none;
+    padding: 10px 0px;
+    color: var(--dark);
+  }
+
+  .nav.active {
+    left: 0;
+  }
+
+  header.sticky {
+    padding: 28px 40px;
+  }
+
+  header.sticky .bar {
+    background-color: black;
+  }
+
+  #about {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .col-about {
+    width: 100%;
+  }
+
+  .about-text {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
+  .about-img {
+    margin-left: 0;
+  }
+
+  .col-about .about-img {
+    max-height: 300px;
+  }
+
+  .expert-content .expert-card {
+    width: 240px;
+    margin: 10px;
+  }
+
+  .menu-content .menu-card {
+    width: 240px;
+  }
+
+  .contact-box {
+    margin: 20px;
+    width: 480px;
+  }
+}
+
+/* ? Mobile Breakpoint */
+@media (max-width: 540px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  section {
+    padding: 100px 32px;
+  }
+
+  header {
+    padding: 24px 36px;
+    justify-content: space-between;
+  }
+
+  header.sticky {
+    padding: 20px 32px;
+  }
+
+  header.sticky .bar {
+    background-color: black;
+  }
+
+  #about {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .col-about {
+    width: 100%;
+  }
+
+  .about-text {
+    margin-left: 0;
+    margin-bottom: 16px;
+  }
+
+  .about-img {
+    margin-left: 0;
+  }
+
+  .col-about .about-img {
+    max-height: 300px;
+  }
+
+  .expert-content .expert-card {
+    width: 250px;
+    margin: 10px;
+  }
+
+  .menu-content .menu-card {
+    width: 280px;
+  }
+
+  .contact-box {
+    margin: 16px;
+    width: 350px;
+  }
+
+  .footer-content ul li,
+  .footer-content a {
+    display: list-item;
+    list-style: none;
+    margin: 8px 0px;
+    font-size: 16px;
+  }
 }
